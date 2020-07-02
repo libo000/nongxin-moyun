@@ -20,5 +20,60 @@
         </dependency>
     </dependencies>
 
-
+    <build>
+        <resources>
+            <!--过滤掉不需要编译的文件-->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <!--springboot maven插件，执行maven打包编译-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <!--默认目标（goal）为repackage-->
+                <!--            <executions>-->
+                <!--                &lt;!&ndash;执行编译目标（goals）&ndash;&gt;-->
+                <!--                <execution>-->
+                <!--                    <goals>-->
+                <!--                        <goal>repackage</goal>-->
+                <!--                    </goals>-->
+                <!--                </execution>-->
+                <!--            </executions>-->
+                <configuration>
+                    <!--编译后jar的文件名后加入该字段（原nongxin-emply-1.0.jar）-->
+                    <classifier>exec</classifier>
+                    <!--指定编译后的jar存的路径位置，不配置则为项目根目录-->
+                    <outputDirectory>../target2</outputDirectory>
+                </configuration>
+            </plugin>
+            <!--maven插件，指定目标源版本，编译后版本，编码-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!--编译时跳过测试-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!--                <includes>-->
+                    <!--                    <include>**/*Tests.java</include>-->
+                    <!--                    <include>**/*Test.java</include>-->
+                    <!--                </includes>-->
+                    <!--                <excludes>-->
+                    <!--                    <exclude>**/Abstract*.java</exclude>-->
+                    <!--                </excludes>-->
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
