@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mo.yun</groupId>
+    <artifactId>nongxin-moyun</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>nongxin-common</module>
+        <module>nongxin-emply</module>
+        <module>nongxin-mvc</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>nongxin-moyun</name>
+    <description>ce si data</description>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.10</version>
+            </dependency>
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.40</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>1.1.21</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.3.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--私服-->
+    <distributionManagement>
+<!--        &lt;!&ndash;正式版本,不会轻易改变的jar包&ndash;&gt;-->
+<!--        <repository>-->
+<!--            <id>wspc_release</id>-->
+<!--            <url>http://192.168.43.120:8081/repository/wspc_release/</url>-->
+<!--        </repository>-->
+<!--        &lt;!&ndash;开发版本，时常变动的jar包&ndash;&gt;-->
+<!--        <snapshotRepository>-->
+<!--            <id>wspc_snapshot</id>-->
+<!--            <url>http://192.168.43.120:8081/repository/wspc_snapshot/</url>-->
+<!--        </snapshotRepository>-->
+
+        <!--正式版本,不会轻易改变的jar包-->
+        <repository>
+            <id>moyun-release</id>
+            <url>http://192.168.1.10:8081/repository/moyun-release/</url>
+        </repository>
+        <!--开发版本，时常变动的jar包-->
+        <snapshotRepository>
+            <id>moyun-snapshot</id>
+            <url>http://192.168.1.10:8081/repository/moyun-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

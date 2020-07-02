@@ -1,0 +1,22 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.mo.yun.config.DemoProperties",
+      "name": "spring.demo",
+      "type": "com.mo.yun.config.DemoProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.mo.yun.config.DemoProperties",
+      "name": "spring.demo.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.mo.yun.config.DemoProperties",
+      "name": "spring.demo.select",
+      "type": "java.lang.String"
+    }
+  ]
+}
